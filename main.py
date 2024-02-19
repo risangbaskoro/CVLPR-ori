@@ -22,7 +22,8 @@ import tensorflow as tf
 
 from model import SmallBasicBlock
 
-if __name__ == '__main__':
+
+def main():
     model = tf.keras.Sequential([
         tf.keras.layers.Input(shape=(24, 94, 3)),
         tf.keras.layers.Conv2D(
@@ -84,3 +85,7 @@ if __name__ == '__main__':
                   metrics=['accuracy'])
 
     model.summary()
+
+
+if __name__ == '__main__':
+    main()
