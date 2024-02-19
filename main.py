@@ -14,13 +14,33 @@
 #
 #      You should have received a copy of the GNU General Public License
 #      along with this program.  If not, see https://www.gnu.org/licenses/.
+import numpy as np
+
+import tensorflow as tf
 
 from const import CHARS
 from const import CHARS_DICT
 
-import tensorflow as tf
-
 from model import SmallBasicBlock
+
+LABEL_LEN = 9
+
+
+def encode_label(label: str, max_length: int = LABEL_LEN):
+    """
+    Encode a label into a numpy array as defined in CHARS_DICT
+    Args:
+        label: A string of label.
+        max_length: The maximum length of the label
+    Returns:
+        An array of floats defined in CHARS_DICT
+    """
+    while len(label) < max_length:
+        label = label + ' '
+    result = np.zeros([len(label)])
+    for i, c in enumerate(label):
+        result[i] = CHARS_DICT[c]
+    return result
 
 
 def main():
