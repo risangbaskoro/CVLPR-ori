@@ -15,6 +15,9 @@
 #      You should have received a copy of the GNU General Public License
 #      along with this program.  If not, see https://www.gnu.org/licenses/.
 
+from const import CHARS
+from const import CHARS_DICT
+
 import tensorflow as tf
 
 from model import SmallBasicBlock
